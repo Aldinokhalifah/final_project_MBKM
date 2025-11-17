@@ -96,7 +96,7 @@ export default function Footer() {
       </div>
       <div className="cs-height_40 cs-height_lg_30"></div>
       <div className="cs-copyright text-center">
-        <div className="container">Copyright 2022. Created by Thememarch.</div>
+        <div className="container">Copyright 2025</div>
       </div>
     </footer>
   );

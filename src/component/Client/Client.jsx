@@ -2,13 +2,13 @@ import React from "react";
 
 export default function Client() {
   return (
-    <section className="cs-bg" data-src="../../../img/feature_bg.svg">
+    <section id="client" className="cs-bg" data-src="../../../img/feature_bg.svg">
       <div className="cs-height_95 cs-height_lg_70"></div>
       <div className="container">
         <div className="cs-seciton_heading cs-style1 text-center">
-          <div className="cs-section_subtitle">Our Client</div>
+          <div className="cs-section_subtitle">Telah dipercaya UMKM, toko kecil, dan bisnis lokal di seluruh Indonesia.</div>
           <div className="cs-height_10 cs-height_lg_10"></div>
-          <h3 className="cs-section_title">Who we partner with</h3>
+          <h3 className="cs-section_title">Klien Kami</h3>
         </div>
         <div className="cs-height_50 cs-height_lg_40"></div>
         <div className="cs-slider cs-style1 cs-gap-24">

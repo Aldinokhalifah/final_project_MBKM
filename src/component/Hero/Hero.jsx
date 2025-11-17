@@ -23,18 +23,18 @@ export default function Hero() {
             />
           </div>
           <div className="cs-hero_text">
-            <div className="cs-hero_secondary_title">
-              Free Forever For All Users.
-            </div>
             <h1 className="cs-hero_title">
-              Easy-to-use <br></br>Point of Sale
+              KasKu
             </h1>
+            <div className="cs-hero_secondary_title">
+              Pencatatan Keuangan UMKM Super Sederhana
+            </div>
             <div className="cs-hero_subtitle">
-              You may start selling in a matter of minutes and easy to <br></br>
-              use. Appropriate for all devices.
+              Kelola pemasukan, pengeluaran, dan laporan bisnis Anda tanpa ribet.<br></br>
+              Cocok untuk UMKM, yang ingin lebih rapi dan cepat dalam mengatur keuangan.
             </div>
             <a href="#" className="cs-btn">
-              <span>Start Free Trial</span>
+              <span>Coba Gratis Sekarang</span>
             </a>
           </div>
           <div className="cs-hero_shapes">

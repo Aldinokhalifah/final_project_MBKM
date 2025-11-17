@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Testimonials() {
   return (
-    <section className="cs-gradient_bg_1">
+    <section id="testimonials" className="cs-gradient_bg_1">
       <div className="cs-height_95 cs-height_lg_70"></div>
       <div className="container">
         <div className="cs-seciton_heading cs-style1 text-center">
@@ -11,10 +11,10 @@ export default function Testimonials() {
             data-wow-duration="1s"
             data-wow-delay="0.4s"
           >
-            Testimonials
+            Testimoni
           </div>
           <div className="cs-height_10 cs-height_lg_10"></div>
-          <h3 className="cs-section_title">What our client’s say</h3>
+          <h3 className="cs-section_title">Apa kata pengguna kami?</h3>
         </div>
         <div className="cs-height_50 cs-height_lg_40"></div>
         <div className="cs-slider cs-style1 cs-gap-24">
@@ -35,9 +35,7 @@ export default function Testimonials() {
               <div className="cs-slide">
                 <div className="cs-testimonial cs-style1">
                   <div className="cs-testimonial_text">
-                    With Thrive’s help, we were able to increase the
-                    functionality of our website dramatically while were able to
-                    increase the.
+                    “KasKu bener-bener ngebantu usaha kecil kayak saya. Catat transaksi jadi super cepat, laporan harian langsung kelihatan. Sekarang saya lebih ngerti uang masuk–keluar tanpa harus pusing.”
                   </div>
                   <div className="cs-testimonial_meta">
                     <div className="cs-avatar">
@@ -62,8 +60,8 @@ export default function Testimonials() {
                       </div>
                     </div>
                     <div className="cs-testimonial_meta_right">
-                      <h3>Edward Wolfe</h3>
-                      <p>Customer</p>
+                      <h3>Siti Marwah</h3>
+                      <p>Pemilik Toko Kue Rumahan</p>
                       <div className="cs-review" data-review="4">
                         <img src="../../../img/icons/stars.svg" alt="Star" />
                         <div className="cs-review_in">
@@ -77,9 +75,7 @@ export default function Testimonials() {
               <div className="cs-slide">
                 <div className="cs-testimonial cs-style1">
                   <div className="cs-testimonial_text">
-                    With Thrive’s help, we were able to increase the
-                    functionality of our website dramatically while were able to
-                    increase the.
+                    “Dulu saya catat pemasukan cuma di buku tulis. Sekarang semua otomatis. Yang paling saya suka itu laporan mingguan, jelas banget posisi kas saya. KasKu cocok buat UMKM yang gak mau ribet.”
                   </div>
                   <div className="cs-testimonial_meta">
                     <div className="cs-avatar">
@@ -104,8 +100,8 @@ export default function Testimonials() {
                       </div>
                     </div>
                     <div className="cs-testimonial_meta_right">
-                      <h3>Rodney Bryner</h3>
-                      <p>Customer</p>
+                      <h3>Rendi Saputra</h3>
+                      <p>Pengusaha Laundry</p>
                       <div className="cs-review" data-review="5">
                         <img src="../../../img/icons/stars.svg" alt="Star" />
                         <div className="cs-review_in">
@@ -119,9 +115,7 @@ export default function Testimonials() {
               <div className="cs-slide">
                 <div className="cs-testimonial cs-style1">
                   <div className="cs-testimonial_text">
-                    With Thrive’s help, we were able to increase the
-                    functionality of our website dramatically while were able to
-                    increase the.
+                    “Aplikasinya ringan dan mudah banget dipakai. Kasir saya juga cepat belajar. Fitur kategori dan metode pembayaran bikin transaksi jadi rapi.”
                   </div>
                   <div className="cs-testimonial_meta">
                     <div className="cs-avatar">
@@ -146,8 +140,8 @@ export default function Testimonials() {
                       </div>
                     </div>
                     <div className="cs-testimonial_meta_right">
-                      <h3>Jacque Askew</h3>
-                      <p>Customer</p>
+                      <h3>Maria Lestari</h3>
+                      <p>Pemilik Kios Sembako</p>
                       <div className="cs-review" data-review="4.5">
                         <img src="../../../img/icons/stars.svg" alt="Star" />
                         <div className="cs-review_in">
@@ -161,9 +155,7 @@ export default function Testimonials() {
               <div className="cs-slide">
                 <div className="cs-testimonial cs-style1">
                   <div className="cs-testimonial_text">
-                    With Thrive’s help, we were able to increase the
-                    functionality of our website dramatically while were able to
-                    increase the.
+                    “Saya bisa cek penjualan per hari tanpa buka laptop. Di HP pun lancar. Invoice KasKu juga bikin usaha saya terlihat lebih profesional saat kirim ke pelanggan.”
                   </div>
                   <div className="cs-testimonial_meta">
                     <div className="cs-avatar">
@@ -188,8 +180,8 @@ export default function Testimonials() {
                       </div>
                     </div>
                     <div className="cs-testimonial_meta_right">
-                      <h3>Edward Wolfe</h3>
-                      <p>Customer</p>
+                      <h3>Dimas Pratama</h3>
+                      <p>Pelaku Usaha Thrift Store</p>
                       <div className="cs-review" data-review="4">
                         <img src="../../../img/icons/stars.svg" alt="Star" />
                         <div className="cs-review_in">

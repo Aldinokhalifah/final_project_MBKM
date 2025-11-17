@@ -10,10 +10,10 @@ export default function Faq() {
           data-wow-duration="1s"
           data-wow-delay="0.4s"
         >
-          POS FAQ
+          Pusat Bantuan KasKu
         </div>
         <div className="cs-height_10 cs-height_lg_10"></div>
-        <h3 className="cs-section_title">Frequently asked questions</h3>
+        <h3 className="cs-section_title">Pertanyaan Umum Seputar KasKu</h3>
       </div>
       <div className="cs-height_50 cs-height_lg_40"></div>
       <div className="container">
@@ -39,7 +39,7 @@ export default function Faq() {
               <div className="cs-accordian cs-white_bg active">
                 <div className="cs-accordian_head">
                   <h2 className="cs-accordian_title">
-                    <span>Q1.</span> What is a point of sale?
+                    <span>Q1.</span> Apa itu KasKu?
                   </h2>
                   <span className="cs-accordian_toggle">
                     <svg
@@ -57,17 +57,14 @@ export default function Faq() {
                   </span>
                 </div>
                 <div className="cs-accordian-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard sincethe 15000s, printer took a galley of type and
-                  scrambl.
+                  KasKu adalah aplikasi pencatatan keuangan sederhana untuk UMKM agar pemasukan dan pengeluaran bisa dikelola lebih rapi.
                 </div>
               </div>
               <div className="cs-height_25 cs-height_lg_25"></div>
               <div className="cs-accordian cs-white_bg">
                 <div className="cs-accordian_head">
                   <h2 className="cs-accordian_title">
-                    <span>Q2.</span> What is the best POS system?
+                    <span>Q2.</span> Apakah KasKu gratis?
                   </h2>
                   <span className="cs-accordian_toggle">
                     <svg
@@ -85,17 +82,14 @@ export default function Faq() {
                   </span>
                 </div>
                 <div className="cs-accordian-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard sincethe 15000s, printer took a galley of type and
-                  scrambl.
+                  Ya! Anda bisa menggunakan fitur dasar KasKu secara gratis.
                 </div>
               </div>
               <div className="cs-height_25 cs-height_lg_25"></div>
               <div className="cs-accordian cs-white_bg">
                 <div className="cs-accordian_head">
                   <h2 className="cs-accordian_title">
-                    <span>Q3.</span> How does a POS system work?
+                    <span>Q3.</span> Bagaimana cara kerja pencatatannya?
                   </h2>
                   <span className="cs-accordian_toggle">
                     <svg
@@ -113,17 +107,14 @@ export default function Faq() {
                   </span>
                 </div>
                 <div className="cs-accordian-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard sincethe 15000s, printer took a galley of type and
-                  scrambl.
+                  Cukup masukkan transaksi → pilih kategori → selesai. Semua otomatis masuk ke laporan.
                 </div>
               </div>
               <div className="cs-height_25 cs-height_lg_25"></div>
               <div className="cs-accordian cs-white_bg">
                 <div className="cs-accordian_head">
                   <h2 className="cs-accordian_title">
-                    <span>Q4.</span> How to use a POS System?
+                    <span>Q4.</span> Bisakah saya mengelola banyak outlet?
                   </h2>
                   <span className="cs-accordian_toggle">
                     <svg
@@ -141,17 +132,14 @@ export default function Faq() {
                   </span>
                 </div>
                 <div className="cs-accordian-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard sincethe 15000s, printer took a galley of type and
-                  scrambl.
+                  Bisa. KasKu mendukung multi-outlet (opsional).
                 </div>
               </div>
               <div className="cs-height_25 cs-height_lg_25"></div>
               <div className="cs-accordian cs-white_bg">
                 <div className="cs-accordian_head">
                   <h2 className="cs-accordian_title">
-                    <span>Q5.</span> How can i make a payment?
+                    <span>Q5.</span> Apakah aman?
                   </h2>
                   <span className="cs-accordian_toggle">
                     <svg
@@ -169,10 +157,7 @@ export default function Faq() {
                   </span>
                 </div>
                 <div className="cs-accordian-body">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard sincethe 15000s, printer took a galley of type and
-                  scrambl.
+                  Data Anda dienkripsi dan disimpan dengan standar keamanan modern.
                 </div>
               </div>
             </div>

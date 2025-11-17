@@ -1,20 +1,19 @@
 import React from "react";
 import Preloader from "../../component/Preloader/Preloader";
 import Hero from "../../component/Hero/Hero";
-import FunFact from "../../component/FunFact/FunFact";
-import AllFeature from "../../component/AllFeature/AllFeature";
-import RetailStores from "../../component/RetailStores/RetailStores";
+// import FunFact from "../../component/FunFact/FunFact";
+// import AllFeature from "../../component/AllFeature/AllFeature";
+// import RetailStores from "../../component/RetailStores/RetailStores";
 import Testimonials from "../../component/Testimonials/Testimonials";
 import Client from "../../component/Client/Client";
 import Faq from "../../component/Faq/Faq";
-import Post from "../../component/Post/Post";
+// import Post from "../../component/Post/Post";
 import Login from "../../component/Model/Login";
 import Register from "../../component/Model/Register";
 import Forget from "../../component/Model/Forget";
-import Blog from "../../component/Model/Blog";
+// import Blog from "../../component/Model/Blog";
 import Feature from "./Feature/Feature";
 import About from "./About/About";
-import Pricing from "./Pricing/Pricing";
 import Contact from "./Contact/Contact";
 
 export default function Home() {
@@ -25,36 +24,42 @@ export default function Home() {
       <Hero></Hero>
       {/* <!-- End Hero --> */}
 
-      {/* <!-- Start Main Feature --> */}
-      <Feature />
-      {/* <!-- End Main Feature --> */}
       {/* <!-- Start About --> */}
       <About />
       {/* <!-- End About --> */}
+
+      {/* <!-- Start Main Feature --> */}
+      <Feature />
+      {/* <!-- End Main Feature --> */}
+
       {/* <!-- Start Fun Fact --> */}
-      <FunFact />
+      {/* <FunFact /> */}
       {/* <!-- End Fun Fact --> */}
+
       {/* <!-- Start All Feature --> */}
-      <AllFeature />
+      {/* <AllFeature /> */}
       {/* <!-- End All Feature --> */}
+
       {/* <!-- Start Retail Stores --> */}
-      <RetailStores />
+      {/* <RetailStores /> */}
       {/* <!-- End Retail Stores --> */}
-      {/* <!-- Start Price Section --> */}
-      <Pricing />
-      {/* <!-- End Price Section --> */}
-      {/* <!-- End Testimonials Section --> */}
-      <Testimonials />
-      {/* <!-- End Testimonials Stores --> */}
-      {/* <!-- End Client Section --> */}
+
+      {/* <!-- Start Client Section --> */}
       <Client />
       {/* <!-- End Client Stores --> */}
+
+      {/* <!-- Start Testimonials Section --> */}
+      <Testimonials />
+      {/* <!-- End Testimonials Stores --> */}
+
       {/* <!-- Start FAQ --> */}
       <Faq />
       {/* <!-- End FAQ --> */}
-      {/* <!-- End Post Section --> */}
-      <Post />
+
+      {/* <!-- Start Post Section --> */}
+      {/* <Post /> */}
       {/* <!-- End Post Stores --> */}
+
       {/* <!-- Start Contact Section --> */}
       <Contact />
       {/* <!-- End Contact Section --> */}
@@ -62,15 +67,17 @@ export default function Home() {
       {/* <!-- Start Login Modal --> */}
       <Login />
       {/* <!-- End Login Modal --> */}
+
       {/* <!-- Start Register Modal --> */}
       <Register />
       {/* <!-- End Register Modal --> */}
+
       {/* <!-- Start forgot Modal  --> */}
       <Forget />
       {/* <!-- End forgot Modal  --> */}
 
       {/* <!-- Start Blog Details --> */}
-      <Blog />
+      {/* <Blog /> */}
       {/* <!-- end Blog Details --> */}
     </div>
   );

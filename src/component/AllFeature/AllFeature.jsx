@@ -4,7 +4,7 @@ export default function AllFeature() {
   return (
     <section className="cs-bg" data-src="../../../img/feature_bg.svg">
       <div className="cs-height_135 cs-height_lg_0"></div>
-      <div id="feature">
+      <div id="#">
         <div className="cs-height_95 cs-height_lg_70"></div>
         <div className="container">
           <div className="cs-seciton_heading cs-style1 text-center">

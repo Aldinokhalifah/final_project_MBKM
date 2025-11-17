@@ -3690,7 +3690,7 @@ li.menu-item-has-children
 /*--------------------------------------------------------------
 11. Pricing Table
 ----------------------------------------------------------------*/
-.cs-pricing_table.cs-style1 {
+/* .cs-pricing_table.cs-style1 {
   background-color: #fff;
   border-radius: 10px;
   -webkit-transition: all 0.3s ease;
@@ -3803,7 +3803,7 @@ li.menu-item-has-children
   .cs-pricing_table.cs-style1 .cs-price b {
     font-size: 50px;
   }
-}
+} */
 
 /*--------------------------------------------------------------
 12. Testimonial

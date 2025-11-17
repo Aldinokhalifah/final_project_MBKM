@@ -2,19 +2,19 @@ import React from "react";
 
 export default function Feature() {
   return (
-    <section className="cs-bg" data-src="../../../img/feature_bg.svg">
+    <section id="feature" className="cs-bg" data-src="../../../img/feature_bg.svg">
       <div className="cs-height_95 cs-height_lg_70"></div>
       <div className="container">
         <div className="cs-seciton_heading cs-style1 text-center">
-          <div
+          <div className="cs-height_10 cs-height_lg_10"></div>
+          <h3 className="cs-section_title">Fitur Utama</h3>
+           <div
             className="cs-section_subtitle wow fadeInUp"
             data-wow-duration="1s"
             data-wow-delay="0.3s"
           >
-            Office & Inventory
+            Fitur yang membuat pencatatan keuangan jadi effortless
           </div>
-          <div className="cs-height_10 cs-height_lg_10"></div>
-          <h3 className="cs-section_title">Our best inventory</h3>
         </div>
         <div className="cs-height_50 cs-height_lg_40"></div>
         <div className="row">
@@ -27,11 +27,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">01</div>
                 <h3 className="cs-iconbox_title">
-                  Recipe management & costing
+                  Buku Kas Otomatis
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Lorem Ipsum is simply dummy text of the printing and formal
-                  typesetting
+                  Catat pemasukan & pengeluaran hanya dalam hitungan detik, lengkap dengan lampiran nota.
                 </div>
               </div>
             </div>
@@ -45,11 +44,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">02</div>
                 <h3 className="cs-iconbox_title">
-                  Stock management & inventory
+                  Kelola Kategori & Metode Pembayaran
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Lorem Ipsum is simply dummy text of the printing and formal
-                  typesetting
+                  Kelompokkan transaksi berdasarkan kategori, cash, transfer, atau e-wallet.
                 </div>
               </div>
             </div>
@@ -64,11 +62,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">03</div>
                 <h3 className="cs-iconbox_title">
-                  Purchase management systeme
+                  Laporan Real-Time
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Lorem Ipsum is simply dummy text of the printing and formal
-                  typesetting
+                  Lihat arus kas harian, mingguan, dan bulanan dengan grafik yang mudah dibaca.
                 </div>
               </div>
             </div>
@@ -82,11 +79,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">04</div>
                 <h3 className="cs-iconbox_title">
-                  Powerful inventory reporting
+                  Invoice Cepat
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Lorem Ipsum is simply dummy text of the printing and formal
-                  typesetting
+                  Buat dan kirim invoice profesional langsung dari aplikasi.
                 </div>
               </div>
             </div>

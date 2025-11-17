@@ -16,32 +16,32 @@ export default function Header() {
                 <ul className="cs-nav_list">
                   <li>
                     <a href="#home" className="cs-smoth_scroll">
-                      Home
+                      Beranda
                     </a>
                   </li>
                   <li>
                     <a href="#about" className="cs-smoth_scroll">
-                      About
+                      Tentang Kami
                     </a>
                   </li>
                   <li>
                     <a href="#feature" className="cs-smoth_scroll">
-                      Feature
+                      Fitur
                     </a>
                   </li>
                   <li>
-                    <a href="#pricing" className="cs-smoth_scroll">
-                      Pricing
+                    <a href="#client" className="cs-smoth_scroll">
+                      Klien
                     </a>
                   </li>
                   <li>
-                    <a href="#news" className="cs-smoth_scroll">
-                      News
+                    <a href="#testimonials" className="cs-smoth_scroll">
+                      Testimoni
                     </a>
                   </li>
                   <li>
                     <a href="#contact" className="cs-smoth_scroll">
-                      Contact
+                      Kontak
                     </a>
                   </li>
                 </ul>
@@ -50,13 +50,13 @@ export default function Header() {
             <div className="cs-main_header_right">
               <div className="cs-toolbox">
                 <span className="cs-link cs-modal_btn" data-modal="login">
-                  Login
+                  Masuk
                 </span>
                 <span
                   className="cs-btn cs-color1 cs-modal_btn"
                   data-modal="register"
                 >
-                  <span>Start For Free</span>
+                  <span>Daftar Sekarang</span>
                 </span>
               </div>
             </div>
