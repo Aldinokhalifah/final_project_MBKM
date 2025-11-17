@@ -27,10 +27,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">01</div>
                 <h3 className="cs-iconbox_title">
-                  Buku Kas Otomatis
+                  Pencatatan Keuangan
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Catat pemasukan & pengeluaran hanya dalam hitungan detik, lengkap dengan lampiran nota.
+                  Catat transaksi harian hanya dalam beberapa detik. Tambahkan keterangan, kategori, jumlah, hingga upload nota sebagai bukti transaksi.
                 </div>
               </div>
             </div>
@@ -44,10 +44,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">02</div>
                 <h3 className="cs-iconbox_title">
-                  Kelola Kategori & Metode Pembayaran
+                  Kategori Transaksi
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Kelompokkan transaksi berdasarkan kategori, cash, transfer, atau e-wallet.
+                  Atur kategori sesuai jenis bisnis Anda — seperti bahan baku, sewa, gaji, operasional, atau penjualan.
                 </div>
               </div>
             </div>
@@ -62,10 +62,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">03</div>
                 <h3 className="cs-iconbox_title">
-                  Laporan Real-Time
+                  Laporan Arus Kas
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Lihat arus kas harian, mingguan, dan bulanan dengan grafik yang mudah dibaca.
+                  Lihat ringkasan pemasukan, pengeluaran, dan saldo secara harian, mingguan, hingga bulanan.
                 </div>
               </div>
             </div>
@@ -79,10 +79,10 @@ export default function Feature() {
               <div className="cs-iconbox_in">
                 <div className="cs-iconbox_number cs-primary_font">04</div>
                 <h3 className="cs-iconbox_title">
-                  Invoice Cepat
+                  Sistem Aman & Responsif
                 </h3>
                 <div className="cs-iconbox_subtitle">
-                  Buat dan kirim invoice profesional langsung dari aplikasi.
+                  Dilengkapi autentikasi JWT, UI yang mudah digunakan, performa respons cepat, serta tampilan yang responsif di HP.
                 </div>
               </div>
             </div>

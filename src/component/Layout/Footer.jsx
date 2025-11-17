@@ -11,9 +11,8 @@ export default function Footer() {
               <div className="cs-footer_widget_text">
                 <img src="../../../img/logo_footer.svg" alt="Logo" />
                 <p>
-                  On the other hand, we denounce <br></br>
-                  with righteous indignation and <br></br>
-                  dislike men who are so
+                  Aplikasi pencatatan keuangan sederhana untuk UMKM.
+                  Membantu usaha Anda mencatat pemasukan, pengeluaran, dan membuat laporan secara mudah dan cepat.
                 </p>
               </div>
               <div className="cs-height_30 cs-height_lg_30"></div>
@@ -32,62 +31,61 @@ export default function Footer() {
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="cs-footer_item widget_nav_menu">
-              <h2 className="cs-widget_title">Available POS</h2>
+              <h2 className="cs-widget_title">Cocok Untuk</h2>
               <ul className="menu">
                 <li>
-                  <a href="#">Food Delivery</a>
+                  <a href="#">Toko Makanan & Minuman</a>
                 </li>
                 <li>
-                  <a href="#">Furniture Store</a>
+                  <a href="#">Retail & Minimarket</a>
                 </li>
                 <li>
                   <a href="#">Coffee Shop</a>
                 </li>
                 <li>
-                  <a href="#">Clothing Store</a>
+                  <a href="#">Butik / Clothing Store</a>
                 </li>
                 <li>
-                  <a href="#">eCommerce</a>
+                  <a href="#">Toko Online</a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="cs-footer_item widget_nav_menu">
-              <h2 className="cs-widget_title">Company</h2>
+              <h2 className="cs-widget_title">Perusahaan</h2>
               <ul className="menu">
                 <li>
-                  <a href="#">Features</a>
+                  <a href="#">Fitur</a>
                 </li>
                 <li>
                   <a href="#">FAQ</a>
                 </li>
                 <li>
-                  <a href="#">Privacy Policy</a>
+                  <a href="#">Kebijakan Privasi</a>
                 </li>
                 <li>
-                  <a href="#">Terms of Use</a>
+                  <a href="#">Syarat & Ketentuan</a>
                 </li>
               </ul>
             </div>
           </div>
           <div className="col-lg-3 col-md-6">
             <div className="cs-footer_item widget_nav_menu">
-              <h2 className="cs-widget_title">Subscribe us</h2>
+              <h2 className="cs-widget_title">Berlangganan Info KasKu</h2>
               <form className="cs-newsletter">
                 <div className="cs-newsletter_text">
-                  Get Business news, tip and solutions to your problems from our
-                  experts.
+                  Dapatkan tips bisnis, update fitur, dan insight pengelolaan keuangan langsung ke email Anda.
                 </div>
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <input
                   type="text"
                   className="cs-form_field"
-                  placeholder="Enter your email"
+                  placeholder="Masukkan Email Anda"
                 />
                 <div className="cs-height_10 cs-height_lg_10"></div>
                 <button className="cs-btn cs-size_md w-100">
-                  <span>Subscribe</span>
+                  <span>Berlangganan</span>
                 </button>
               </form>
             </div>
@@ -96,7 +94,7 @@ export default function Footer() {
       </div>
       <div className="cs-height_40 cs-height_lg_30"></div>
       <div className="cs-copyright text-center">
-        <div className="container">Copyright 2025</div>
+        <div className="container">© 2025 KasKu. All rights reserved.</div>
       </div>
     </footer>
   );

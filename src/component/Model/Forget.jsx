@@ -27,25 +27,25 @@ export default function Forget() {
             </div>
             <div className="cs-login_right">
               <form className="cs-login_form">
-                <h2>Forgot your Password</h2>
+                <h2>Lupa Kata Sandi Anda</h2>
                 <div className="cs-height_30 cs-height_lg_30"></div>
                 <input
                   type="text"
                   className="cs-form_field cs-border_color"
-                  placeholder="Email address"
+                  placeholder="Alamat Email"
                 />
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <button className="cs-btn cs-size_md w-100">
-                  <span>Send Me Email</span>
+                  <span>Kirim</span>
                 </button>
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <p className="cs-m0">
-                  Don't have an account?
+                  Tidak Punya Akun?
                   <span
                     className="cs-text_btn cs-modal_btn"
                     data-modal="register"
                   >
-                    <span>Register</span>
+                    <span>Daftar Sekarang</span>
                   </span>
                 </p>
               </form>

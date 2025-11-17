@@ -27,12 +27,12 @@ export default function Login() {
             </div>
             <div className="cs-login_right">
               <form className="cs-login_form">
-                <h2>Login in to your posing account</h2>
+                <h2>Masuk Dengan Akun Anda</h2>
                 <div className="cs-height_30 cs-height_lg_30"></div>
                 <input
                   type="text"
                   className="cs-form_field cs-border_color"
-                  placeholder="Email address"
+                  placeholder="Alamat Email"
                 />
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <input
@@ -45,7 +45,7 @@ export default function Login() {
                   <div>
                     <div className="cs-check">
                       <input type="checkbox" />
-                      <label>Remember me</label>
+                      <label>Ingat Saya</label>
                     </div>
                   </div>
                   <div>
@@ -53,22 +53,22 @@ export default function Login() {
                       className="cs-text_btn cs-modal_btn"
                       data-modal="forgot"
                     >
-                      <span>Forgot Password?</span>
+                      <span>Lupa Password?</span>
                     </span>
                   </div>
                 </div>
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <button className="cs-btn cs-size_md w-100">
-                  <span>Login</span>
+                  <span>Masuk</span>
                 </button>
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <p className="cs-m0">
-                  Don't have an account?
+                  Tidak Punya Akun?
                   <span
                     className="cs-text_btn cs-modal_btn"
                     data-modal="register"
                   >
-                    <span>Register</span>
+                    <span>Daftar Sekarang</span>
                   </span>
                 </p>
                 <div className="cs-height_30 cs-height_lg_30"></div>

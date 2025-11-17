@@ -114,7 +114,7 @@ export default function Faq() {
               <div className="cs-accordian cs-white_bg">
                 <div className="cs-accordian_head">
                   <h2 className="cs-accordian_title">
-                    <span>Q4.</span> Bisakah saya mengelola banyak outlet?
+                    <span>Q4.</span> Bisakah saya mengekspor laporan ke Excel?
                   </h2>
                   <span className="cs-accordian_toggle">
                     <svg
@@ -132,7 +132,7 @@ export default function Faq() {
                   </span>
                 </div>
                 <div className="cs-accordian-body">
-                  Bisa. KasKu mendukung multi-outlet (opsional).
+                  Bisa. KasKu mendukung ekspor laporan dalam format CSV/XLSX.
                 </div>
               </div>
               <div className="cs-height_25 cs-height_lg_25"></div>

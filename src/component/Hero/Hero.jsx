@@ -30,8 +30,7 @@ export default function Hero() {
               Pencatatan Keuangan UMKM Super Sederhana
             </div>
             <div className="cs-hero_subtitle">
-              Kelola pemasukan, pengeluaran, dan laporan bisnis Anda tanpa ribet.<br></br>
-              Cocok untuk UMKM, yang ingin lebih rapi dan cepat dalam mengatur keuangan.
+              Kelola pemasukan, pengeluaran, dan laporan bisnis Anda tanpa ribet.
             </div>
             <a href="#" className="cs-btn">
               <span>Coba Gratis Sekarang</span>

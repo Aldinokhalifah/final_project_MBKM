@@ -27,18 +27,18 @@ export default function Register() {
             </div>
             <div className="cs-login_right">
               <form className="cs-login_form">
-                <h2>Create your new account</h2>
+                <h2>Buat Akun Baru Anda</h2>
                 <div className="cs-height_30 cs-height_lg_30"></div>
                 <input
                   type="text"
                   className="cs-form_field cs-border_color"
-                  placeholder="Your Name"
+                  placeholder="Nama Anda"
                 />
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <input
                   type="text"
                   className="cs-form_field cs-border_color"
-                  placeholder="Email address"
+                  placeholder="Alamat Email"
                 />
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <input
@@ -50,18 +50,18 @@ export default function Register() {
                 <div className="cs-login_meta">
                   <div className="cs-check">
                     <input type="checkbox" />
-                    <label>I agree to the terms of service</label>
+                    <label>Saya Setuju dengan Ketentuan Layanan</label>
                   </div>
                 </div>
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <button className="cs-btn cs-size_md w-100">
-                  <span>Register</span>
+                  <span>Daftar</span>
                 </button>
                 <div className="cs-height_20 cs-height_lg_20"></div>
                 <p className="cs-m0">
-                  Already have an account?
+                  Sudah Punya Akun?
                   <span className="cs-text_btn cs-modal_btn" data-modal="login">
-                    <span>Login</span>
+                    <span>Masuk</span>
                   </span>
                 </p>
                 <div className="cs-height_30 cs-height_lg_30"></div>
