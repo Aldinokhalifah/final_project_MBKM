@@ -10,6 +10,7 @@ class ReportSeeder extends Seeder
     public function run(): void
     {
         Reports::create([
+            'owner_id' => 1,
             'outlet_id' => 1,
             'period' => 'monthly',
             'start_date' => '2025-01-01',

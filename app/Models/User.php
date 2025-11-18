@@ -80,6 +80,10 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany(Transactions::class, 'user_id');
     }
 
+    public function reports() {
+        return $this->hasMany(Reports::class, 'owner_id');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

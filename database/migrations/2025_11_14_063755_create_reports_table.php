@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('reports', function (Blueprint $table) {
             $table->id('report_id');
 
+            $table->foreignId('owner_id')
+                ->constrained('users', 'user_id')
+                ->onDelete('cascade');
+
             $table->foreignId('outlet_id')
                 ->constrained('outlets', 'outlet_id')
                 ->onDelete('cascade');
@@ -24,15 +28,11 @@ return new class extends Migration
 
             $table->decimal('total_income', 15, 2)->default(0);
             $table->decimal('total_expense', 15, 2)->default(0);
-
-            // profit = income - expense
             $table->decimal('profit', 15, 2)->storedAs('total_income - total_expense');
 
             $table->timestamp('generated_at')->useCurrent();
 
             $table->timestamps();
-
-            $table->index(['outlet_id', 'period']);
         });
     }
 

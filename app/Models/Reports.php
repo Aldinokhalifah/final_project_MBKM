@@ -12,13 +12,13 @@ class Reports extends Model
     protected $keyType = 'int';
 
     protected $fillable = [
+        'owner_id',
         'outlet_id',
         'period',
         'start_date',
         'end_date',
         'total_income',
         'total_expense',
-        'generated_at'
     ];
 
     protected $casts = [
@@ -31,5 +31,9 @@ class Reports extends Model
 
     public function outlet() {
         return $this->belongsTo(Outlets::class, 'outlet_id');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'owner_id');
     }
 }
