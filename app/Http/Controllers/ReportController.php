@@ -6,20 +6,22 @@ use App\Models\Reports;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
+use App\Models\Transactions;
 use SebastianBergmann\CodeCoverage\Report\Xml\Report;
 
 class ReportController extends Controller
 {
-    public function index(Request $request) {
+    public function index(Request $request)
+    {
         $userId = $request->user()->user_id;
-        
+
         $reports = Reports::with('user', 'outlet')
             ->where('owner_id', $userId)
             ->orderBy('generated_at', 'desc')
             ->get();
 
 
-        if($reports->isEmpty()) {
+        if ($reports->isEmpty()) {
             return response()->json([
                 'message' => 'reports not found',
                 'data' => []
@@ -32,43 +34,62 @@ class ReportController extends Controller
         ], 200);
     }
 
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $userId = $request->user()->user_id;
 
-        $request->validate([
-            'outlet_id'      => 'required|exists:outlets,outlet_id',
-            'period'         => 'required|in:daily,weekly,monthly',
-            'start_date'     => 'required|date',
-            'end_date'       => 'required|date|after_or_equal:start_date',
-            'total_income'   => 'required|numeric|min:0',
-            'total_expense'  => 'required|numeric|min:0',
+        // VALIDASI: total_income & total_expense TIDAK PERLU dari frontend
+        $validated = $request->validate([
+            'outlet_id'  => 'required|exists:outlets,outlet_id',
+            'period'     => 'required|in:daily,weekly,monthly',
+            'start_date' => 'required|date',
+            'end_date'   => 'required|date|after_or_equal:start_date',
         ]);
 
+        // AMBIL TRANSAKSI SESUAI FILTER
+        $transactions = Transactions::where('user_id', $userId)
+            ->where('outlet_id', $validated['outlet_id'])
+            ->whereBetween('date', [$validated['start_date'], $validated['end_date']])
+            ->get();
+
+        // HITUNG TOTAL PEMASUKAN & PENGELUARAN
+        $totalIncome = $transactions
+            ->where('type', 'income')
+            ->sum('amount');
+
+        $totalExpense = $transactions
+            ->where('type', 'expense')
+            ->sum('amount');
+
+        // SIMPAN REPORT
         $report = Reports::create([
             'owner_id'      => $userId,
-            'outlet_id'     => $request->outlet_id,
-            'period'        => $request->period,
-            'start_date'    => $request->start_date,
-            'end_date'      => $request->end_date,
-            'total_income'  => $request->total_income,
-            'total_expense' => $request->total_expense,
+            'outlet_id'     => $validated['outlet_id'],
+            'period'        => $validated['period'],
+            'start_date'    => $validated['start_date'],
+            'end_date'      => $validated['end_date'],
+            'total_income'  => $totalIncome,
+            'total_expense' => $totalExpense,
         ]);
+
+        // Biar langsung ada relasi di response
+        $report->load(['user', 'outlet']);
 
         return response()->json([
             'message' => 'report created successfully',
-            'data'    => $report
+            'data'    => $report,
         ], 201);
     }
-
-    public function show(Request $request, $id) {
+    public function show(Request $request, $id)
+    {
         $userId = $request->user()->user_id;
-        
+
         $report = Reports::with(['user', 'outlet'])
             ->where('report_id', $id)
             ->where('owner_id', $userId)
             ->first();
 
-        if(!$report) {
+        if (!$report) {
             return response()->json([
                 'message' => 'report not found',
                 'data' => []
@@ -81,7 +102,8 @@ class ReportController extends Controller
         ], 200);
     }
 
-    public function destroy(Request $request, $id) {
+    public function destroy(Request $request, $id)
+    {
         $userId = $request->user()->user_id;
 
         $report = Reports::with(['user', 'outlet'])
@@ -89,7 +111,7 @@ class ReportController extends Controller
             ->where('owner_id', $userId)
             ->first();
 
-        if(!$report) {
+        if (!$report) {
             return response()->json([
                 'message' => 'report not found',
                 'data' => []
@@ -103,7 +125,8 @@ class ReportController extends Controller
         ], 200);
     }
 
-    public function exportPdf(Request $request, $id) {
+    public function exportPdf(Request $request, $id)
+    {
         $userId = $request->user()->user_id;
 
         $report = Reports::with(['user', 'outlet'])
@@ -111,7 +134,7 @@ class ReportController extends Controller
             ->where('owner_id', $userId)
             ->first();
 
-        if(!$report) {
+        if (!$report) {
             return response()->json([
                 'message' => 'Report not found',
                 'data' => []
@@ -132,11 +155,12 @@ class ReportController extends Controller
 
         // Download PDF dengan nama file dinamis
         $filename = 'report-' . $report->outlet->outlet_name . '-' . $report->period . '-' . now()->format('Ymd') . '.pdf';
-        
+
         return $pdf->download($filename);
     }
 
-    public function exportAllPdf(Request $request) {
+    public function exportAllPdf(Request $request)
+    {
         $userId = $request->user()->user_id;
 
         // Optional filters
@@ -144,23 +168,23 @@ class ReportController extends Controller
             ->where('owner_id', $userId);
 
         // Filter berdasarkan outlet jika dimasukkan
-        if($request->has('outlet_id')) {
+        if ($request->has('outlet_id')) {
             $query->where('outlet_id', $request->outlet_id);
         }
 
         // Filter berdasarkan period jika dimasukkan
-        if($request->has('period')) {
+        if ($request->has('period')) {
             $query->where('period', $request->period);
         }
 
         // Filter berdasarkan date range jika dimasukkan
-        if($request->has('start_date') && $request->has('end_date')) {
+        if ($request->has('start_date') && $request->has('end_date')) {
             $query->whereBetween('start_date', [$request->start_date, $request->end_date]);
         }
 
         $reports = $query->orderBy('start_date', 'desc')->get();
 
-        if($reports->isEmpty()) {
+        if ($reports->isEmpty()) {
             return response()->json([
                 'message' => 'No reports found',
                 'data' => []
@@ -186,7 +210,7 @@ class ReportController extends Controller
             ->setPaper('a4', 'portrait');
 
         $filename = 'all-reports-' . now()->format('Ymd-His') . '.pdf';
-        
+
         return $pdf->download($filename);
     }
 }
