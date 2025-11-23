@@ -29,8 +29,8 @@ class CategoryController extends Controller
         $userId = $request->user()->user_id;
 
         $request->validate([
-            'name' => 'required|string|unique:categories,name',
-            'type' => 'required|string'
+            'name' => 'required|string|max:255',
+            'type' => 'required|string|in:income,expense'
         ]);
 
         $category = Categories::create([
@@ -79,7 +79,7 @@ class CategoryController extends Controller
         }
 
         $request->validate([
-            'name' => 'required|string|unique:categories,name,' . $id . ',category_id',
+            'name' => 'required|string|max:255',
             'type' => 'required|string|in:income,expense'
         ]);
 

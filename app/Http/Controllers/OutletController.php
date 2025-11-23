@@ -29,7 +29,7 @@ class OutletController extends Controller
         $userId = $request->user()->user_id;
 
         $request->validate([
-            'name' => 'required|string|unique:outlets,name',
+            'name' => 'required|string',
             'address' => 'nullable|string'
         ]);
 
@@ -80,7 +80,7 @@ class OutletController extends Controller
         }
 
         $request->validate([
-            'name' => 'required|string|unique:outlets,name',
+            'name' => 'required|string',
             'address' => 'nullable|string'
         ]);
 
