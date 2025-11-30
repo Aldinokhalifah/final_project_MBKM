@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import { registerUser } from "../../apinew";
 import { useNavigate } from "react-router-dom";
+import { registerUser } from "../../apinew";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -14,22 +13,15 @@ export default function Register() {
   });
 
   const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  const handleTilt = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const rotateX = (e.clientY - rect.top - rect.height / 2) / 20;
-    const rotateY = -(e.clientX - rect.left - rect.width / 2) / 20;
-    setTilt({ x: rotateX, y: rotateY });
-  };
+  const [success, setSuccess] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setError("");
     setSuccess("");
 
+    // Cek konfirmasi password dulu
     if (form.password !== form.confirmPassword) {
       setError("Password tidak cocok!");
       return;
@@ -37,6 +29,8 @@ export default function Register() {
 
     try {
       setLoading(true);
+
+      // Pakai apiClient lewat helper registerUser (bukan fetch)
       await registerUser({
         name: form.name,
         email: form.email,
@@ -44,12 +38,15 @@ export default function Register() {
       });
 
       setSuccess("Pendaftaran berhasil! Mengalihkan ke halaman login...");
-      // kasih jeda dikit buat user baca pesan sukses
-      setTimeout(() => navigate("/login"), 1200);
+
+      // Kasih jeda sedikit biar user baca pesan sukses
+      setTimeout(() => {
+        navigate("/login");
+      }, 1200);
     } catch (err) {
       console.error(err);
 
-      // Ambil pesan error dari Laravel (validation / custom message)
+      // Default message
       let msg =
         err.response?.data?.message || err.message || "Gagal registrasi";
 
@@ -70,104 +67,209 @@ export default function Register() {
 
   return (
     <div
-      className="d-flex justify-content-center align-items-center vh-100"
-      style={{ background: "#FFFFFF" }}
+      className="min-vh-100 d-flex justify-content-center align-items-center"
+      style={{ background: "#FFFFFF", padding: "16px" }}
     >
-      <motion.div
-        className="cs-modal_container p-4"
+      <div
+        className="bg-white rounded-4"
         style={{
-          width: "450px",
-          background: "#fff",
-          borderRadius: "14px",
-          transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-          transition: "transform 0.12s",
-          boxShadow: `
-            ${tilt.y * 4}px ${tilt.x * 4}px 25px rgba(0,0,0,0.2),
-            0 0 25px rgba(0,150,255,0.3),
-            0 0 40px rgba(0,150,255,0.1)
-          `,
-          border: "1px solid rgba(0,150,255,0.25)",
+          maxWidth: "460px",
+          width: "100%",
+          border: "1px solid #e5e7eb",
+          boxShadow:
+            "0 12px 32px rgba(0,0,0,0.06), 0 4px 12px rgba(0,0,0,0.04)",
+          padding: "32px",
         }}
-        onMouseMove={handleTilt}
-        onMouseLeave={() => setTilt({ x: 0, y: 0 })}
       >
+        {/* Header */}
+        <div className="mb-3 text-center text-lg-start">
+          <span
+            style={{
+              fontSize: "0.8rem",
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              color: "#4965B2",
+              fontWeight: 600,
+            }}
+          >
+            Daftar Akun Baru
+          </span>
+          <h2
+            className="mt-2 mb-1"
+            style={{
+              fontSize: "1.7rem",
+              fontWeight: 700,
+              color: "#1e293b",
+            }}
+          >
+            Buat akun Anda
+          </h2>
+          <p style={{ color: "#6b7280", fontSize: "0.9rem" }}>
+            Isi data di bawah untuk mulai menggunakan aplikasi.
+          </p>
+        </div>
+
+        {/* Alerts */}
+        {error && (
+          <div
+            className="alert alert-danger py-2 px-3"
+            style={{ fontSize: "0.85rem" }}
+          >
+            {error}
+          </div>
+        )}
+
+        {success && (
+          <div
+            className="alert alert-success py-2 px-3"
+            style={{ fontSize: "0.85rem" }}
+          >
+            {success}
+          </div>
+        )}
+
+        {/* Form */}
         <form onSubmit={handleRegister}>
-          <h2 className="mb-3">Buat Akun Baru</h2>
+          {/* Nama */}
+          <div className="mb-3">
+            <label
+              className="form-label mb-1"
+              style={{ fontSize: "0.85rem", color: "#334155" }}
+            >
+              Nama Lengkap
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Nama lengkap"
+              value={form.name}
+              onChange={(e) => setForm({ ...form, name: e.target.value })}
+              required
+              style={{
+                borderRadius: "10px",
+                padding: "10px 12px",
+                fontSize: "0.9rem",
+                borderColor: "#cbd5e1",
+              }}
+            />
+          </div>
 
-          {error && <div className="alert alert-danger py-2">{error}</div>}
-          {success && <div className="alert alert-success py-2">{success}</div>}
+          {/* Email */}
+          <div className="mb-3">
+            <label
+              className="form-label mb-1"
+              style={{ fontSize: "0.85rem", color: "#334155" }}
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="email@example.com"
+              value={form.email}
+              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              required
+              style={{
+                borderRadius: "10px",
+                padding: "10px 12px",
+                fontSize: "0.9rem",
+                borderColor: "#cbd5e1",
+              }}
+            />
+          </div>
 
-          <input
-            type="text"
-            className="cs-form_field cs-border_color"
-            placeholder="Nama Lengkap"
-            value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
-            required
-          />
+          {/* Password */}
+          <div className="mb-3">
+            <label
+              className="form-label mb-1"
+              style={{ fontSize: "0.85rem", color: "#334155" }}
+            >
+              Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="••••••••"
+              value={form.password}
+              onChange={(e) =>
+                setForm({ ...form, password: e.target.value })
+              }
+              required
+              style={{
+                borderRadius: "10px",
+                padding: "10px 12px",
+                fontSize: "0.9rem",
+                borderColor: "#cbd5e1",
+              }}
+            />
+          </div>
 
-          <div className="cs-height_20"></div>
+          {/* Konfirmasi Password */}
+          <div className="mb-3">
+            <label
+              className="form-label mb-1"
+              style={{ fontSize: "0.85rem", color: "#334155" }}
+            >
+              Konfirmasi Password
+            </label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Ulangi password"
+              value={form.confirmPassword}
+              onChange={(e) =>
+                setForm({ ...form, confirmPassword: e.target.value })
+              }
+              required
+              style={{
+                borderRadius: "10px",
+                padding: "10px 12px",
+                fontSize: "0.9rem",
+                borderColor: "#cbd5e1",
+              }}
+            />
+          </div>
 
-          <input
-            type="email"
-            className="cs-form_field cs-border_color"
-            placeholder="Email"
-            value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
-            required
-          />
-
-          <div className="cs-height_20"></div>
-
-          <input
-            type="password"
-            className="cs-form_field cs-border_color"
-            placeholder="Password"
-            value={form.password}
-            onChange={(e) => setForm({ ...form, password: e.target.value })}
-            required
-          />
-
-          <div className="cs-height_20"></div>
-
-          <input
-            type="password"
-            className="cs-form_field cs-border_color"
-            placeholder="Konfirmasi Password"
-            value={form.confirmPassword}
-            onChange={(e) =>
-              setForm({ ...form, confirmPassword: e.target.value })
-            }
-            required
-          />
-
-          <div className="cs-height_20"></div>
-
-          <button className="cs-btn w-100">
-            {loading ? (
-              <span>Loading...</span>
-            ) : (
-              <span>Daftar</span>
-            )}
+          {/* Tombol daftar */}
+          <button
+            type="submit"
+            className="btn w-100"
+            disabled={loading}
+            style={{
+              background: "linear-gradient(135deg, #4965B2, #52C8C4)",
+              border: "none",
+              color: "white",
+              fontWeight: 600,
+              padding: "10px 16px",
+              borderRadius: "999px",
+              fontSize: "0.95rem",
+              boxShadow: "0 10px 25px rgba(73,101,178,0.35)",
+            }}
+          >
+            {loading ? "Memproses..." : "Daftar"}
           </button>
 
-          <p className="mt-3 text-center">
+          <p
+            className="mt-3 mb-0 text-center"
+            style={{ fontSize: "0.85rem", color: "#475569" }}
+          >
             Sudah punya akun?
-            <span
-              className="cs-text_btn"
-              style={{
-                cursor: "pointer",
-                color: "#007bff",
-                fontWeight: "bold",
-                marginLeft: "5px",
-              }}
+            <button
+              type="button"
               onClick={() => navigate("/login")}
+              className="border-0 bg-transparent ps-1"
+              style={{
+                color: "#4965B2",
+                fontWeight: 600,
+                cursor: "pointer",
+                fontSize: "0.85rem",
+              }}
             >
-              Masuk
-            </span>
+              Masuk di sini
+            </button>
           </p>
         </form>
-      </motion.div>
+      </div>
     </div>
   );
 }

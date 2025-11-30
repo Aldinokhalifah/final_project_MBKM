@@ -1,6 +1,7 @@
 {
-  "name": "posing",
-  "version": "0.1.0",
+  "name": "kasku-app",
+  "version": "1.0.0",
+  "description": "Aplikasi pencatatan keuangan UMKM super sederhana",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
