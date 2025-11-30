@@ -34,6 +34,13 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
       path: "/",
       icon: <Home size={18} />,
     },
+    // 🔻 Logout dijadikan item menu terakhir
+    {
+      key: "logout",
+      label: "Logout",
+      isLogout: true,
+      icon: <LogOut size={18} />,
+    },
   ];
 
   const userMenus = [
@@ -57,18 +64,24 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
       path: "/laporan",
       icon: <BarChart size={18} />,
     },
+    // 🔻 Logout juga terakhir untuk user
+    {
+      key: "logout",
+      label: "Logout",
+      isLogout: true,
+      icon: <LogOut size={18} />,
+    },
   ];
 
   const menus = role === "admin" ? adminMenus : userMenus;
 
   const handleNavigate = (path) => {
-    // FIX
+    // Home selalu full reload ke landing (biar slider & hamburger aman)
     if (path === "/") {
       window.location.href = "/";
       return;
     }
 
-    // Route lain tetap lewat React Router (SPA)
     if (onNavigate) {
       onNavigate(path);
     }
@@ -97,92 +110,73 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
         </h4>
       </div>
 
-      {/* Menu Items - Scrollable */}
+      {/* Menu Items (termasuk Logout) */}
       <div
         style={{
           flexGrow: 1,
-          padding: "0 1rem",
+          padding: "0 1rem 1.5rem", // extra bottom padding biar aman dari bottom bar
           overflowY: "auto",
           overflowX: "hidden",
           scrollbarWidth: "thin",
           scrollbarColor: "rgba(255,255,255,0.2) transparent",
         }}
       >
-        {menus.map((m) => (
-          <button
-            key={m.key}
-            type="button"
-            onClick={() => handleNavigate(m.path)}
-            style={{
-              width: "100%",
-              padding: "10px 12px",
-              marginBottom: "0.5rem",
-              borderRadius: "10px",
-              background: active === m.key ? "#007BFF" : "#24263D",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "white",
-              fontWeight: active === m.key ? "600" : "400",
-              display: "flex",
-              alignItems: "center",
-              cursor: "pointer",
-              transition: "all 0.2s ease",
-              textAlign: "left",
-            }}
-            onMouseEnter={(e) => {
-              if (active !== m.key) {
-                e.currentTarget.style.background = "#2d3050";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (active !== m.key) {
-                e.currentTarget.style.background = "#24263D";
-              }
-            }}
-          >
-            {m.icon}
-            <span style={{ marginLeft: "0.5rem" }}>{m.label}</span>
-          </button>
-        ))}
-      </div>
+        {menus.map((m) => {
+          const isActive = !m.isLogout && active === m.key;
 
-      {/* Logout Button - Fixed at Bottom */}
-      <div style={{ padding: "0 1rem 1rem" }}>
-        <hr
-          style={{
-            borderColor: "rgba(255,255,255,0.1)",
-            margin: "1rem 0",
-          }}
-        />
-        <button
-          type="button"
-          onClick={handleLogout}
-          style={{
-            width: "100%",
-            background: "linear-gradient(90deg, #D9534F, #C9302C)",
-            borderRadius: "10px",
-            padding: "10px 0",
-            fontWeight: "600",
-            color: "white",
-            border: "none",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            transition: "transform 0.2s ease",
-          }}
-          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
-          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-        >
-          <LogOut size={16} />
-          <span style={{ marginLeft: "0.5rem" }}>Logout</span>
-        </button>
+          const baseBg = m.isLogout
+            ? "linear-gradient(90deg, #D9534F, #C9302C)"
+            : isActive
+            ? "#007BFF"
+            : "#24263D";
+
+          return (
+            <button
+              key={m.key}
+              type="button"
+              onClick={() =>
+                m.isLogout ? handleLogout() : handleNavigate(m.path)
+              }
+              style={{
+                width: "100%",
+                padding: "10px 12px",
+                marginBottom: "0.5rem",
+                borderRadius: "10px",
+                background: baseBg,
+                border: m.isLogout
+                  ? "none"
+                  : "1px solid rgba(255,255,255,0.1)",
+                color: "white",
+                fontWeight: isActive ? "600" : "400",
+                display: "flex",
+                alignItems: "center",
+                cursor: "pointer",
+                transition: "all 0.2s ease",
+                textAlign: "left",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive && !m.isLogout) {
+                  e.currentTarget.style.background = "#2d3050";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive && !m.isLogout) {
+                  e.currentTarget.style.background = "#24263D";
+                }
+              }}
+            >
+              {m.icon}
+              <span style={{ marginLeft: "0.5rem" }}>{m.label}</span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
 
   return (
     <>
-      {/* Mobile Toggle Button - Only visible on mobile */}
+      {/* Mobile Toggle Button */}
       <button
         type="button"
         onClick={() => setIsMobileOpen(!isMobileOpen)}
@@ -204,7 +198,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
         {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
 
-      {/* Desktop Sidebar - Always visible on desktop */}
+      {/* Desktop Sidebar */}
       <aside
         className="d-none d-lg-flex"
         style={{
@@ -223,7 +217,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
         <SidebarContent />
       </aside>
 
-      {/* Mobile Overlay - Only when menu is open */}
+      {/* Mobile Overlay */}
       {isMobileOpen && (
         <div
           onClick={() => setIsMobileOpen(false)}
@@ -240,7 +234,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
         />
       )}
 
-      {/* Mobile Sidebar - Slides from left */}
+      {/* Mobile Sidebar */}
       {isMobileOpen && (
         <div
           className="d-lg-none"
