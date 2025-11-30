@@ -9,29 +9,66 @@ import {
   Home,
   User2,
   Menu,
-  X
+  X,
 } from "lucide-react";
 
 export default function Sidebar({ active, onLogout, role, onNavigate }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   const adminMenus = [
-    { key: "dashboardAdmin", label: "Daftar User", path: "/admin/dashboard", icon: <Users size={18} /> },
-    { key: "users", label: "Kelola User", path: "/admin/users", icon: <User2 size={18} /> },
-    { key: "home", label: "Home", path: "/", icon: <Home size={18} /> },
+    {
+      key: "dashboardAdmin",
+      label: "Daftar User",
+      path: "/admin/dashboard",
+      icon: <Users size={18} />,
+    },
+    {
+      key: "users",
+      label: "Kelola User",
+      path: "/admin/users",
+      icon: <User2 size={18} />,
+    },
+    {
+      key: "home",
+      label: "Home",
+      path: "/",
+      icon: <Home size={18} />,
+    },
   ];
 
   const userMenus = [
     { key: "home", label: "Home", path: "/", icon: <Home size={18} /> },
-    { key: "transaksi", label: "Transactions", path: "/transaksi", icon: <ShoppingCart size={18} /> },
+    {
+      key: "transaksi",
+      label: "Transactions",
+      path: "/transaksi",
+      icon: <ShoppingCart size={18} />,
+    },
     { key: "outlet", label: "Outlets", path: "/outlet", icon: <Store size={18} /> },
-    { key: "categories", label: "Categories", path: "/categories", icon: <Tags size={18} /> },
-    { key: "laporan", label: "Reports", path: "/laporan", icon: <BarChart size={18} /> },
+    {
+      key: "categories",
+      label: "Categories",
+      path: "/categories",
+      icon: <Tags size={18} />,
+    },
+    {
+      key: "laporan",
+      label: "Reports",
+      path: "/laporan",
+      icon: <BarChart size={18} />,
+    },
   ];
 
   const menus = role === "admin" ? adminMenus : userMenus;
 
   const handleNavigate = (path) => {
+    // FIX
+    if (path === "/") {
+      window.location.href = "/";
+      return;
+    }
+
+    // Route lain tetap lewat React Router (SPA)
     if (onNavigate) {
       onNavigate(path);
     }
@@ -47,29 +84,34 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
     <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* Header */}
       <div style={{ padding: "1.5rem 1rem" }}>
-        <h4 style={{ 
-          textAlign: "center", 
-          marginBottom: 0, 
-          fontWeight: "bold", 
-          color: "#9ccfff",
-          fontSize: "1.1rem"
-        }}>
+        <h4
+          style={{
+            textAlign: "center",
+            marginBottom: 0,
+            fontWeight: "bold",
+            color: "#9ccfff",
+            fontSize: "1.1rem",
+          }}
+        >
           {role === "admin" ? "Dashboard Admin" : "Dashboard User"}
         </h4>
       </div>
 
       {/* Menu Items - Scrollable */}
-      <div style={{ 
-        flexGrow: 1, 
-        padding: "0 1rem",
-        overflowY: "auto", 
-        overflowX: "hidden",
-        scrollbarWidth: "thin",
-        scrollbarColor: "rgba(255,255,255,0.2) transparent"
-      }}>
+      <div
+        style={{
+          flexGrow: 1,
+          padding: "0 1rem",
+          overflowY: "auto",
+          overflowX: "hidden",
+          scrollbarWidth: "thin",
+          scrollbarColor: "rgba(255,255,255,0.2) transparent",
+        }}
+      >
         {menus.map((m) => (
           <button
             key={m.key}
+            type="button"
             onClick={() => handleNavigate(m.path)}
             style={{
               width: "100%",
@@ -84,7 +126,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
               alignItems: "center",
               cursor: "pointer",
               transition: "all 0.2s ease",
-              textAlign: "left"
+              textAlign: "left",
             }}
             onMouseEnter={(e) => {
               if (active !== m.key) {
@@ -105,8 +147,14 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
 
       {/* Logout Button - Fixed at Bottom */}
       <div style={{ padding: "0 1rem 1rem" }}>
-        <hr style={{ borderColor: "rgba(255,255,255,0.1)", margin: "1rem 0" }} />
+        <hr
+          style={{
+            borderColor: "rgba(255,255,255,0.1)",
+            margin: "1rem 0",
+          }}
+        />
         <button
+          type="button"
           onClick={handleLogout}
           style={{
             width: "100%",
@@ -120,10 +168,10 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            transition: "transform 0.2s ease"
+            transition: "transform 0.2s ease",
           }}
-          onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.02)"}
-          onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+          onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.02)")}
+          onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
         >
           <LogOut size={16} />
           <span style={{ marginLeft: "0.5rem" }}>Logout</span>
@@ -136,6 +184,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
     <>
       {/* Mobile Toggle Button - Only visible on mobile */}
       <button
+        type="button"
         onClick={() => setIsMobileOpen(!isMobileOpen)}
         style={{
           position: "fixed",
@@ -148,7 +197,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
           borderRadius: "10px",
           padding: "10px",
           cursor: "pointer",
-          boxShadow: "0 2px 8px rgba(0,0,0,0.3)"
+          boxShadow: "0 2px 8px rgba(0,0,0,0.3)",
         }}
         className="d-lg-none"
       >
@@ -168,7 +217,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
           left: 0,
           zIndex: 1000,
           color: "white",
-          flexShrink: 0
+          flexShrink: 0,
         }}
       >
         <SidebarContent />
@@ -205,7 +254,7 @@ export default function Sidebar({ active, onLogout, role, onNavigate }) {
             left: 0,
             zIndex: 1100,
             color: "white",
-            animation: "slideIn 0.3s ease-in-out"
+            animation: "slideIn 0.3s ease-in-out",
           }}
         >
           <SidebarContent />
