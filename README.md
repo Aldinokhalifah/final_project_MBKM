@@ -13,7 +13,7 @@ Project ini merupakan final project MBKM yang bertujuan untuk membuat aplikasi p
 - Mempermudah monitoring arus kas secara real-time  
 
 
-
+## 🧩 Fitur Utama
 ✏️ Input pemasukan & pengeluaran
 • Mengelola transaksi masuk & keluar secara cepat.
 📂 Manajemen kategori transaksi
