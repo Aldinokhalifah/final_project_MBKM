@@ -55,12 +55,12 @@ Project ini merupakan final project MBKM yang bertujuan untuk membuat aplikasi p
 Aplikasi pencatatan keuangan UMKM ini dirancang untuk membantu pelaku usaha mencatat transaksi mereka secara rapi, cepat, dan mudah. Dengan fitur seperti manajemen outlet, laporan keuangan, hingga ekspor PDF, sistem ini mendukung UMKM agar lebih terstruktur dan efisien dalam mengelola keuangan.
 
 
-Kelompok – MBKM 2025
+Kelompok 1 – MBKM 2025
 | No | Nama                         | NIM          |
 | -- | ---------------------------- | ------------ |
 | 1  | Achmad Rifa’i Ramadhan       | FWD03009     |
 | 2  | Agihal Putra                 | FWD03025     |
 | 3  | Aldino Khalifah Andima Putra | FWD03045     |
 | 4  | Muhammad Daffa               | FWD03013     |
-| 5  | **Siti Irmawati**            | **FWD03003** |
+| 5  |   Siti Irmawati              |   FWD03003   |
 
